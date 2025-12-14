@@ -5,13 +5,14 @@ import joblib
 # Load model artifacts
 @st.cache_resource
 def load_artifacts():
-    artifacts = joblib.load("../output/models/xgb_model.pkl")
-    model = artifacts["model"]
-    scaler = artifacts["scaler_X"]
+    artifacts = joblib.load("../output/models/ensemble_model.pkl")
+    print(artifacts.keys())
+    model = artifacts["xgb_model"]
+    scaler = artifacts["xgb_scaler"]
     feature_names = artifacts["feature_names"]
     return model, scaler, feature_names
 
-xgb_final, scaler_final, feature_names = load_artifacts()
+model_final, scaler_final, feature_names = load_artifacts()
 
 # Load training data (for columns)
 @st.cache_data
@@ -52,7 +53,7 @@ X_forecast_fe = X_forecast_fe.fillna(X_forecast_fe.mean())
 
 # Scale and predict
 X_forecast_scaled = scaler_final.transform(X_forecast_fe[feature_names])
-forecast_data["Predicted_AQI"] = xgb_final.predict(X_forecast_scaled)
+forecast_data["Predicted_AQI"] = model_final.predict(X_forecast_scaled)
 
 # AQI categories and colors
 def aqi_condition(aqi):
