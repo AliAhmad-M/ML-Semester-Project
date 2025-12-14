@@ -86,7 +86,7 @@ forecast_data["Smog_Risk"] = [
 
 # Streamlit dashboard
 st.set_page_config(page_title="AQI & Smog Predictor", layout="wide")
-st.title("AQI & Smog Forecast Dashboard")
+st.title("Lahore AQI & Smog Forecast Dashboard")
 st.header("Forecasts:")
 cols = st.columns(len(forecast_data))
 cards_per_row = 3
