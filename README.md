@@ -4,13 +4,13 @@ This repository provides a complete workflow for predicting Air Quality Index (A
 
 ## Project Structure
 - The root directory contains data preprocessing and model training notebook
-- The 'input' directory contains our raw data files
-- The 'output' directory contains our processed data and saved models
-- The 'dashboard' directory contains our 'proof of concept' dashboard
+- The `input` directory contains our raw data files
+- The `output` directory contains our processed data and saved models
+- The `dashboard` directory contains our 'proof of concept' dashboard
 
 ## Saved Models
 - `xgb_model.pkl` - Our best saved XGBoost model with scaler and feature names.
-- Data for other models saved in the 'output/models' directory
+- Data for other models saved in the `output/models` directory
 
 ## Running the Dashboard
 
